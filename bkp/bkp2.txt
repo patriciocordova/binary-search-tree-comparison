@@ -1,0 +1,48 @@
+    public static boolean compare(BstNode root1,BstNode root2) {
+        stack1 = new Stack<BstNode>();
+        p1 = root1;
+        stack2 = new Stack<BstNode>();
+        p2 = root1;
+        
+        p1 = root1;
+        p2 = root2;
+        while((!stack1.empty() || p1 != null) || (!stack2.empty() || p2 != null)){
+            r1 = null;
+            r2 = null;
+            doSth1();
+            doSth2();
+            System.out.println(r1 + " " + r2);
+            if(r1 != r2){
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    public static void doSth1() {
+        while(!stack1.empty() || p1 != null){
+            if(p1 != null){
+                stack1.push(p1);
+                p1 = p1.left;
+            }else{
+                BstNode t = stack1.pop();
+                r1 = t.value;
+                p1 = t.right;
+                break;
+            }
+        }
+    }
+
+    public static void doSth2() { 
+        while(!stack2.empty() || p2 != null){
+            if(p2 != null){
+                stack2.push(p2);
+                p2 = p2.left;
+            }else{
+                BstNode t = stack2.pop();
+                r2 = t.value;
+                p2 = t.right;
+                break;
+            }
+        }
+    }
